@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillShowNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        NSTimeInterval duration = [x.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        NSUInteger curve = [x.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+        CGRect frame = [x.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGRect rect = [self.focusedView convertRect:self.focusedView.bounds toView:self.scrollView];
+        CGFloat bottom = rect.origin.y + rect.size.height;
+        if (bottom &gt; frame.origin.y) {
+            [UIView beginAnimations:@"Show" context:NULL];
+            [UIView setAnimationCurve:curve];
+            [UIView setAnimationDuration:duration];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.scrollView.contentOffset = CGPointMake(0, bottom - frame.origin.y);
+            [UIView commitAnimations];
+        } else {
+            [UIView beginAnimations:@"Reset" context:NULL];
+            [UIView setAnimationCurve:curve];
+            [UIView setAnimationDuration:duration];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.scrollView.contentOffset = CGPointMake(0, 0);
+            [UIView commitAnimations];
+        }
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillHideNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        NSTimeInterval duration = [x.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        NSUInteger curve = [x.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+        [UIView beginAnimations:@"Hide" context:NULL];
+        [UIView setAnimationCurve:curve];
+        [UIView setAnimationDuration:duration];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+        [UIView commitAnimations];
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9CD42CCA-E87B-4D09-A972-54BD8FC7F517</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>notification</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
