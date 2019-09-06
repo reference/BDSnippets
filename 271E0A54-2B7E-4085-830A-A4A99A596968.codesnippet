@@ -9,15 +9,15 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, assign) &lt;#Class#&gt; &lt;#name#&gt;;</string>
+	<string>@property (nonatomic, strong) IBOutlet &lt;#Class#&gt; *&lt;#name#&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>92334073-A9D9-4B7F-9F57-B9665B9E6403</string>
+	<string>271E0A54-2B7E-4085-830A-A4A99A596968</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Property assign</string>
+	<string>property IBOutlet</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Property assign</string>
+	<string>property IBOutlet</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
